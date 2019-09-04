@@ -1,26 +1,35 @@
 package com.spring.boot.cntrl;
 
+import java.util.List;
+
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring.boot.entity.Task;
+import com.spring.boot.svc.TaskService;
+
 @RestController
 @RequestMapping("/")
 public class MainCntrl {
 	
+	@Autowired TaskService taskSvc;
+	
 	@GetMapping(value = "home", produces="application/json")
-	public ResponseEntity<Response> home(){
+	public ResponseEntity<List<Task>> home(){
 		Response res = new Response();
 		res.setName("kavin");
 		res.setAge(17);
 		JSONObject jsonObj = new JSONObject();
 		jsonObj.put("name", res.getName());
 		jsonObj.put("age", res.getAge());
+		List<Task> taskList = taskSvc.getTask();
 		System.out.println("working fine");
-		return new ResponseEntity<Response>(res,HttpStatus.OK);
+		return new ResponseEntity<List<Task>>(taskList,HttpStatus.OK);
 	}
 
 }
