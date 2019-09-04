@@ -1,4 +1,4 @@
-package com.spring.boot.cntrl.dao;
+package com.spring.boot.dao;
 
 import java.util.List;
 
