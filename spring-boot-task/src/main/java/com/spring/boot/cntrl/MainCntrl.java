@@ -2,7 +2,6 @@ package com.spring.boot.cntrl;
 
 import java.util.List;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +20,6 @@ public class MainCntrl {
 	
 	@GetMapping(value = "home", produces="application/json")
 	public ResponseEntity<List<Task>> home(){
-		Response res = new Response();
-		res.setName("kavin");
-		res.setAge(17);
-		JSONObject jsonObj = new JSONObject();
-		jsonObj.put("name", res.getName());
-		jsonObj.put("age", res.getAge());
 		List<Task> taskList = taskSvc.getTask();
 		System.out.println("working fine");
 		return new ResponseEntity<List<Task>>(taskList,HttpStatus.OK);
