@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootTaskApplication<spring-boot-task>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.spring.boot.SpringBootTaskApplication",
+            "projectName": "spring-boot-task",
+            "args": ""
+        }
+    ]
+}
