@@ -14,6 +14,8 @@ public class TaskDAO {
 
 	@Autowired JdbcTemplate jdbcTemplate;
 	
+	
+	
 	private static String SELECT = "SELECT * FROM TASK";
 
 	public List<Task> getTask() {
